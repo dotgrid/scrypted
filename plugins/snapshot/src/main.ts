@@ -431,7 +431,7 @@ class SnapshotMixin extends SettingsMixinDeviceBase<Camera> implements Camera {
         const unzippedFs = path.join(pluginVolume, 'zip/unzipped/fs');
         const fontFile = path.join(unzippedFs, 'Lato-Bold.ttf');
 
-        if (!errorBackground) {
+        // if (!errorBackground) {
             const black = path.join(unzippedFs, 'black.jpg');
             return ffmpegFilterImage([
                 '-i', black,
@@ -439,26 +439,26 @@ class SnapshotMixin extends SettingsMixinDeviceBase<Camera> implements Camera {
                 console: this.debugConsole,
                 ffmpegPath: await mediaManager.getFFmpegPath(),
                 blur: true,
-                text: {
-                    fontFile,
-                    text,
-                },
+                // text: {
+                //     fontFile,
+                //     text,
+                // },
                 timeout: 10000,
             })
-        }
-        else {
-            return ffmpegFilterImageBuffer(errorBackground, {
-                console: this.debugConsole,
-                ffmpegPath: await mediaManager.getFFmpegPath(),
-                blur: true,
-                brightness: -.2,
-                text: {
-                    fontFile,
-                    text,
-                },
-                timeout: 10000,
-            });
-        }
+        // }
+        // else {
+        //     return ffmpegFilterImageBuffer(errorBackground, {
+        //         console: this.debugConsole,
+        //         ffmpegPath: await mediaManager.getFFmpegPath(),
+        //         blur: true,
+        //         brightness: -.2,
+        //         text: {
+        //             fontFile,
+        //             text,
+        //         },
+        //         timeout: 10000,
+        //     });
+        // }
     }
 
     async getPictureOptions() {
